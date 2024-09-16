@@ -1,0 +1,12 @@
+[Unit]
+Description=autossh to...
+After=network.target
+
+[Service]
+Type=forking
+Environment=AUTOSSH_PIDFILE=/run/user/%U/autossh_%i.pid
+ExecStart=%h/Documents/autossh/autossh_service.sh "%I"
+PIDFile=/run/user/%U/autossh_%i.pid
+
+[Install]
+WantedBy=multi-user.target
